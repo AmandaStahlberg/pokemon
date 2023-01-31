@@ -1,5 +1,7 @@
 export interface Pokemon {
-  id: number;
+  // extract id from url response and fetch image from that id
+  id: string;
   name: string;
-  image: string;
+  url: string;
+  //image later on
 }
