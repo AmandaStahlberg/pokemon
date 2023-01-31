@@ -5,20 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
 import { ProfilePage } from './pages/profile/profile.page';
-import { PokemonCatalogueComponent } from './pages/pokemon-catalogue/pokemon-catalogue.component';
+import { PokemonCataloguePage } from './pages/pokemon-catalogue/pokemon-catalogue.page';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginPage,
-    ProfilePage,
-    PokemonCatalogueComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, LoginPage, ProfilePage, PokemonCataloguePage],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
