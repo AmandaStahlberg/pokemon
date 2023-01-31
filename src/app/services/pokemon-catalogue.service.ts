@@ -37,6 +37,8 @@ export class PokemonCatalogueService {
       )
       .subscribe({
         next: (response) => {
+          console.log(response.results.map((item) => item.url));
+          console.log(response.results);
           this._pokemons = response.results;
         },
         error: (error: HttpErrorResponse) => {
