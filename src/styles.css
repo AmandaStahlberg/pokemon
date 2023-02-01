@@ -5,6 +5,7 @@
 * {
     font-family: 'Press Start 2P', cursive;
     cursor: none;
+    text-transform: uppercase;
 }
 
 .bg-light-blue {

@@ -1,14 +1,11 @@
-p {
-    font-family: Lato;
-  }
-  
+
   .mouse-circle {
-    position: absolute;
+    /* position: absolute;
     border: solid 1px #ccc;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: white;
+    background: white; */
   }
   .show {
     opacity: 1 !important;
@@ -29,10 +26,6 @@ p {
     opacity: 0;
   }
   
-  .wrapper {
-    height: 100vh;
-    width: 100%;
-  }
   
   .sites-circle.onMove {
     transform: scale(3);
