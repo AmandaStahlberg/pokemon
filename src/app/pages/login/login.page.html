@@ -1,3 +1,7 @@
-<main class="container mx-auto px-4">
-  <app-login-form (login)="handleLogin()"></app-login-form>
+<main class="container flex justify-between w-full mx-auto pt-10 flex h-full">
+  <app-display-image class="md:w-1/2"></app-display-image>
+  <app-login-form
+    class="w-full md:w-1/2 p-4 md:p-0 flex flex-col justify-center h-[40rem]"
+    (login)="handleLogin()"
+  ></app-login-form>
 </main>

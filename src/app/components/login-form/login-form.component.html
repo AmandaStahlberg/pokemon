@@ -1,4 +1,4 @@
-<form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
+<form #loginForm="ngForm" class="w-full" (ngSubmit)="loginSubmit(loginForm)">
   <fieldset class="mb-3">
     <label for="username" class="block">Username</label>
     <input
@@ -7,9 +7,16 @@
       #username="ngModel"
       name="username"
       id="username"
-      class="border border-slate-300 p-2 rounded w-full"
+      class="styled-border p-2 w-full"
       placeholder="Ash Ketchum"
     />
   </fieldset>
-  <button type="submit" class="bg-pink-400 p-2 rounded">Login</button>
+  <button type="submit" class="login-btn p-1 rounded w-full text-2xl mt-4">
+    LOGIN
+  </button>
+  <img
+    class="absolute right-0 bottom-0"
+    src="../../../assets/images/pikachu.png"
+    alt=""
+  />
 </form>

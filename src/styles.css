@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    font-family: 'Press Start 2P', cursive;
+}
+
 .bg-light-blue {
     background-color: #E0F0FF;
+}
+
+.styled-border {
+    border: 5px dashed #000000;
+}
+
+.login-btn {
+    background-color: #FCE815;
+    border: 5px solid #000000;
+}
+
+.login-btn:hover {
+    border: 5px dashed #000000;
+    
 }
