@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { Trainer } from 'src/app/models/trainer.model';
+import { CatchPokemonService } from 'src/app/services/catch-pokemon.service';
 
 @Component({
   selector: 'app-catch-pokemon-button',
@@ -7,9 +10,23 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CatchPokemonButtonComponent implements OnInit {
   @Input() pokemonName: string = '';
-  constructor() {}
+
+  get loading(): boolean {
+    return this.catchPokemonService.loading;
+  }
+
+  constructor(private readonly catchPokemonService: CatchPokemonService) {}
+
   ngOnInit(): void {}
+
   onCatchClick(): void {
-    alert('You catched a ' + this.pokemonName);
+    this.catchPokemonService.addToPokemons(this.pokemonName).subscribe({
+      next: (response: Trainer) => {
+        console.log('NEXT', response);
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log('ERROR', error.message);
+      },
+    });
   }
 }
