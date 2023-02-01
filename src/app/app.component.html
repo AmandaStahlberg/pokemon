@@ -1,2 +1,14 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div
+  class="wrapper"
+  (mouseenter)="enter()"
+  (mousemove)="move($event)"
+  (mouseleave)="leave()"
+>
+  <p>Start editing to see some magic happen :)</p>
+
+  <app-navbar></app-navbar>
+  <router-outlet></router-outlet>
+  <div class="sites-circle" [ngClass]="mouseMove ? 'onMove' : 'notMove'">
+    <img src="../assets/images/pokeball.png" alt="" />
+  </div>
+</div>
