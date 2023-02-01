@@ -46,4 +46,8 @@ export class PokemonCatalogueService {
         },
       });
   }
+  // this is to be changed to pokemonById when we have id on pokemon
+  public pokemonByName(name: string): Pokemon | undefined {
+    return this._pokemons.find((pokemon: Pokemon) => pokemon.name === name);
+  }
 }
