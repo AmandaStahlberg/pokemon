@@ -42,15 +42,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
-<<<<<<< HEAD
-.env
-/src/environments/environment.ts
-/src/environments/environment.prod.ts
-=======
 src/environments/environment.ts
 src/environments/environment.development.ts
 
 .env
 /src/environments/environment.ts
 /src/environments/environment.prod.ts
->>>>>>> 832d9f971a5eb0fadf01d9369a5aaf3e105c0329
