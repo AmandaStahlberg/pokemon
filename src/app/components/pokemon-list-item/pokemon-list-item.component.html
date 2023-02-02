@@ -1,6 +1,9 @@
-<li class="flex flex-row justify-evenly m-4" *ngIf="pokemon">
+<li
+  class="card-shadow bg-white m-4 p-4 max-w-[15rem] flex flex-col items-center hide-scrollBar"
+  *ngIf="pokemon"
+>
   <section>
-    <img [src]="pokemon.image" [alt]="pokemon.name" />
+    <img class="min-h-[10rem]" [src]="pokemon.image" [alt]="pokemon.name" />
   </section>
   <span>{{ pokemon.name }}</span>
   <app-catch-pokemon-button
