@@ -14,6 +14,7 @@ export class PokemonCatalogueService {
   private _loading: boolean = false;
 
   get pokemons(): Pokemon[] {
+    console.log(this._pokemons);
     return this._pokemons;
   }
 
@@ -37,9 +38,12 @@ export class PokemonCatalogueService {
       )
       .subscribe({
         next: (response) => {
-          console.log(response.results.map((item) => item.url));
-          console.log(response.results);
           this._pokemons = response.results;
+          this.pokemons.map((item) => {
+            let urlArray = item.url.split('/');
+            let id = urlArray[urlArray.length - 2];
+            item.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+          });
         },
         error: (error: HttpErrorResponse) => {
           this._error = error.message;
