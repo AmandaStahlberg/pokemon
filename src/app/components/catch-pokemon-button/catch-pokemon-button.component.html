@@ -1,6 +1,19 @@
-<button
-  (click)="onCatchClick()"
-  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
->
-  Catch
-</button>
+<aside class="absolute top-0 right-0">
+  <button (click)="onCatchClick()" class="">
+    <ng-container *ngIf="!loading; else showLoader">
+      <ng-container
+        *ngIf="isCatched; then catched; else notCatched"
+      ></ng-container>
+
+      <ng-template #catched>
+        <img src="../../../assets/images/pokeball.png" alt="" />
+      </ng-template>
+      <ng-template #notCatched>
+        <img src="../../../assets/images/pokeball-grey.png" alt="" />
+      </ng-template>
+    </ng-container>
+    <ng-template #showLoader>
+      <img src="../../../assets/images/pokemon-pikachu.gif" alt="" />
+    </ng-template>
+  </button>
+</aside>

@@ -24,9 +24,9 @@ export class TrainerService {
   }
 
   public inPokemons(pokemonName: string): boolean {
-    console.log('hej');
+    // console.log('hej');
     if (this._trainer) {
-      console.log(this._trainer);
+      // console.log(this._trainer);
       return Boolean(
         this.trainer?.pokemon.find(
           (pokemon: Pokemon) => pokemon.name === pokemonName
