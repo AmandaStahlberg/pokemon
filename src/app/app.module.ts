@@ -11,6 +11,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
+import { CatchPokemonButtonComponent } from './components/catch-pokemon-button/catch-pokemon-button.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DisplayImageComponent } from './components/display-image/display-image.component';
 
@@ -23,6 +24,7 @@ import { DisplayImageComponent } from './components/display-image/display-image.
     LoginFormComponent,
     PokemonListComponent,
     PokemonListItemComponent,
+    CatchPokemonButtonComponent,
     NavbarComponent,
     DisplayImageComponent,
   ],

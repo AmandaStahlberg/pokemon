@@ -1,3 +1,9 @@
-<li *ngIf="pokemon">
-  <span>{{ pokemon.name }} url {{ pokemon.url }}</span>
+<li class="flex flex-row justify-evenly m-4" *ngIf="pokemon">
+  <section>
+    <img [src]="pokemon.image" [alt]="pokemon.name" />
+  </section>
+  <span>{{ pokemon.name }}</span>
+  <app-catch-pokemon-button
+    [pokemonName]="pokemon.name"
+  ></app-catch-pokemon-button>
 </li>
