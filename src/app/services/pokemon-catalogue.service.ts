@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { finalize } from 'rxjs';
-const { apiPokemons } = environment;
+const { apiPokemons, apiImage } = environment;
 
 @Injectable({
   providedIn: 'root',
@@ -42,7 +42,7 @@ export class PokemonCatalogueService {
           this.pokemons.map((item) => {
             let urlArray = item.url.split('/');
             let id = urlArray[urlArray.length - 2];
-            item.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+            item.image = `${apiImage}${id}.png`;
           });
         },
         error: (error: HttpErrorResponse) => {
