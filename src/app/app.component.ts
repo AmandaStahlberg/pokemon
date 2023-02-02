@@ -22,11 +22,11 @@ export class AppComponent {
 
     // this.tooltip.classList.add('onMove');
     // the actual function that is called
-    console.log('mousemove: ' + this.mouseMove);
+    // console.log('mousemove: ' + this.mouseMove);
   }
   move(e: { pageX: number; pageY: number }) {
     this.mouseMove = true;
-    console.log('mousemove: ' + this.mouseMove);
+    // console.log('mousemove: ' + this.mouseMove);
 
     //  this.tooltip.classList.add('onMove');
 
