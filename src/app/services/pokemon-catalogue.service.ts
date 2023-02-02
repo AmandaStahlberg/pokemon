@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { finalize } from 'rxjs';
+import { StorageUtil } from '../utils/storage.utils';
 const { apiPokemons, apiImage } = environment;
 
 @Injectable({
@@ -14,7 +15,6 @@ export class PokemonCatalogueService {
   private _loading: boolean = false;
 
   get pokemons(): Pokemon[] {
-    console.log(this._pokemons);
     return this._pokemons;
   }
 
@@ -28,6 +28,17 @@ export class PokemonCatalogueService {
   constructor(private readonly http: HttpClient) {}
 
   public findAllPokemons(): void {
+    if (this._pokemons.length > 0 || this.loading) {
+      return;
+    }
+
+    const storedPokemons = StorageUtil.storageRead<Pokemon[]>('pokemon-list');
+
+    if (storedPokemons && storedPokemons.length > 0) {
+      this._pokemons = storedPokemons;
+      return;
+    }
+
     this._loading = true;
     this.http
       .get<{ results: Pokemon[] }>(apiPokemons)
@@ -44,13 +55,14 @@ export class PokemonCatalogueService {
             let id = urlArray[urlArray.length - 2];
             item.image = `${apiImage}${id}.png`;
           });
+          StorageUtil.storageSave<Pokemon[]>('pokemon-list', this._pokemons);
         },
         error: (error: HttpErrorResponse) => {
           this._error = error.message;
         },
       });
   }
-  // this is to be changed to pokemonById when we have id on pokemon
+
   public pokemonByName(name: string): Pokemon | undefined {
     return this._pokemons.find((pokemon: Pokemon) => pokemon.name === name);
   }
