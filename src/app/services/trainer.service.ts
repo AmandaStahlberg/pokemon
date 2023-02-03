@@ -35,4 +35,18 @@ export class TrainerService {
     }
     return false;
   }
+
+  public addToPokemons(pokemon: Pokemon): void {
+    if (this._trainer) {
+      this._trainer.pokemon.push(pokemon);
+    }
+  }
+
+  public removeFromPokemons(pokemonName: string): void {
+    if (this._trainer) {
+      this._trainer.pokemon = this._trainer.pokemon.filter(
+        (pokemon: Pokemon) => pokemon.name !== pokemonName
+      );
+    }
+  }
 }

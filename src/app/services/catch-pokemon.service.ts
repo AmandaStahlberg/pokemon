@@ -37,8 +37,11 @@ export class CatchPokemonService {
     if (!pokemon) {
       throw new Error('addToPokemons: No pokemon with name: ' + pokemonName);
     }
+
     if (this.trainerService.inPokemons(pokemonName)) {
-      throw new Error('Pokemon already exist in pokedex');
+      this.trainerService.removeFromPokemons(pokemonName);
+    } else {
+      this.trainerService.addToPokemons(pokemon);
     }
 
     const headers = new HttpHeaders({
@@ -52,7 +55,7 @@ export class CatchPokemonService {
       .patch<Trainer>(
         `${apiTrainers}/${trainer.id}`,
         {
-          pokemon: [...trainer.pokemon, pokemon],
+          pokemon: [...trainer.pokemon],
         },
         { headers }
       )
