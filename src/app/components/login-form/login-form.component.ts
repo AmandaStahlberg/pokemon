@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Trainer } from 'src/app/models/trainer.model';
 import { LoginService } from 'src/app/services/login.service';
 import { TrainerService } from 'src/app/services/trainer.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-form',
@@ -15,6 +16,8 @@ export class LoginFormComponent {
     private readonly loginService: LoginService,
     private readonly trainerService: TrainerService
   ) {}
+
+  private _error: string = '';
 
   public errorMessage: boolean = false;
 
@@ -32,8 +35,9 @@ export class LoginFormComponent {
         this.trainerService.trainer = trainer;
         this.login.emit();
       },
-      error: () => {
-        // handle error here
+      error: (error: HttpErrorResponse) => {
+        this._error = error.message;
+        console.log(this._error);
       },
     });
   }

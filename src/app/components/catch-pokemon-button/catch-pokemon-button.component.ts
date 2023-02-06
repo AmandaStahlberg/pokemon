@@ -30,7 +30,7 @@ export class CatchPokemonButtonComponent implements OnInit {
   onCatchClick(): void {
     this.loading = true;
     if (this.pokemonName === 'pikachu') {
-      console.log('nicetry');
+      alert('I dont like being in a pokemon ball');
       return;
     } else {
       this.catchPokemonService.addToPokemons(this.pokemonName).subscribe({
