@@ -47,6 +47,23 @@
     border: 5px solid #000000;
 }
 
+.yellow-btn {
+    background-color: #FCE815;
+}
+
+.yellow-btn:hover{
+    background-color: #aca013;
+}
+
+.red-btn {
+    background-color: #F02250;
+}
+
+.red-btn:hover {
+    background-color: #c4143a;
+
+}
+
 .login-btn:hover {
     border: 5px dashed #000000;
     
