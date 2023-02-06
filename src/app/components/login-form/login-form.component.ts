@@ -16,8 +16,16 @@ export class LoginFormComponent {
     private readonly trainerService: TrainerService
   ) {}
 
+  public errorMessage: boolean = false;
+
   public loginSubmit(loginForm: NgForm): void {
     const { username } = loginForm.value;
+    console.log(username);
+    if (!username || !/^\S/.test(username.trim())) {
+      this.errorMessage = true;
+      return;
+    }
+    this.errorMessage = false;
 
     this.loginService.login(username).subscribe({
       next: (trainer: Trainer) => {

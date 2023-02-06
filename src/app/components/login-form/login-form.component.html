@@ -11,6 +11,9 @@
       placeholder="Ash Ketchum"
     />
   </fieldset>
+  <div *ngIf="errorMessage">
+    Error: Username cannot be empty or start with a whitespace!
+  </div>
   <button type="submit" class="login-btn p-1 w-full text-2xl mt-4">
     LOGIN
   </button>
