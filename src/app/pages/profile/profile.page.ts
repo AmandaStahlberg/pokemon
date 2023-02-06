@@ -12,6 +12,7 @@ export class ProfilePage implements OnInit {
   get(): Trainer | undefined {
     return this.trainerService.trainer;
   }
+
   get pokemons(): Pokemon[] {
     if (this.trainerService.trainer) {
       return this.trainerService.trainer.pokemon;
